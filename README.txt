@@ -4,6 +4,7 @@ Setup instructions:
 
 brew install heroku/brew/heroku
 heroku login
+git clone https://github.com/nseidl/Ripe.git
 git remote add staging https://git.heroku.com/ripe-staging.git
 git remote add production https://git.heroku.com/ripe-production.git
 
