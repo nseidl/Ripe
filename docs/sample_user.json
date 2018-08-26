@@ -1,0 +1,17 @@
+{
+  "location": "cupertino",
+  "password_hash": "safdfasdfrrweewfblndfnldf",
+  "all_peaches": ["id1", "id2"],
+  "current_peaches": [],
+  "name_last": "smith",
+  "name_first": "john",
+  "unique_id": "unique id of john smith",
+  "exposed_videos": ["vid1", "vid2", "vid3"],
+  "date_created": {
+    "formatted": "formatted time here",
+    "since_epoch": 123423423
+  },
+  "dob": "formatted date of birth here",
+  "username": "jsmith",
+  "gender": "male"
+}

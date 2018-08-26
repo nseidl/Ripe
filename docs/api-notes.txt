@@ -1,0 +1,50 @@
+Metadata Store
+
+Endpoints:
+- /media/videos/<unique_id>.json
+  - use md5 in order to generate unique_id so that we don't ever store duplicate media
+  - pure text file that we can json.read(...) from (so use json.dump(...) to create it)
+
+Video:
+<unique_video_id>.json: {
+	uploaded_by: <user unique_id>,
+	date_uploaded: see below, 
+	file_size: (KB),
+	duration: (seconds),
+	file_location: http://blobstore.domain...,
+	exposed_users: see below,
+	location: (GPS location),
+	ripe: (true/false),
+	ripe_score: #,
+}
+  - date_uploaded
+    - seconds since epoch, so we can do useful calculations easily without parsing formatted time
+    {	since_epoch: ...,
+    	formatted: ... }
+  - exposed_user:
+    - keep one singular spot of information linking users to video to reduce data synchronization issues
+    - having this data so deep inside json might make finding it take a while
+    {	<user unique_id>: { time_to_action: ...,
+    						time_exposed: ...,
+    						result: (liked | disliked | reported) }, 
+   	}
+
+User:
+<unique_user_id>.json: {		
+	date_created: ,
+	email_address: ,
+	username: ,
+	encrypted_password: , 
+	name: ,
+	DOB: ,
+	gender: ,
+	videos: <ids>,
+	location: ,
+	current_peaches: <ids>,
+	all_peaches: <ids>,
+}
+
+Desired endpoints:
+- GET a list of all videos that a user has (liked | disliked | seen)
+- GET a list of all users that a video has been (shown to | liked by | seen)
+- GET a list of the current top n videos
